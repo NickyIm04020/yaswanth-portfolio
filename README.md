@@ -1,16 +1,68 @@
-# React + Vite
+# 🚀 Yaswanth Kumar Ippili – Product Manager Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🧩 Overview
+A high-performance Single Page Application (SPA) built to showcase my journey as an **Aspiring Product Manager**, bridging **Engineering**, **Data**, and **User Experience**.
 
-Currently, two official plugins are available:
+Features:
+- ✨ Spotlight UI Effects (mouse-tracking lighting)
+- 🧭 Smooth single-page navigation
+- 🌓 Dark & Light mode support
+- 📱 Fully responsive for mobile, tablet, and desktop
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+### ⚙️ Tech Stack
+- React (Vite)
+- Tailwind CSS
+- Lucide React Icons
+- Vercel Deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+### 📂 Project Structure
+yaswanth-portfolio/
+├── public/                # Static assets  
+│   ├── image_b30e64.jpg   # Profile photo  
+│   └── pm_resume.pdf      # Resume  
+├── src/
+│   ├── App.jsx            # Main UI  
+│   ├── index.css          # Global styles  
+│   └── main.jsx           # React entry point  
+├── package.json           # Scripts & deps  
+└── tailwind.config.js     # Tailwind config  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+### 🚀 Getting Started
+
+# 1️⃣ Clone the repo
+  git clone https://github.com/NickyIm04020/yaswanth-portfolio.git
+  cd yaswanth-portfolio
+
+# 2️⃣ Install dependencies
+  npm install
+
+# 3️⃣ Run the local dev server
+  npm run dev
+
+# Open in browser
+# http://localhost:5173
+
+---
+
+### 📦 Deployment (Vercel)
+
+# Push to GitHub
+# Import repo on Vercel
+# Vercel auto-detects Vite and deploys instantly
+
+---
+
+### 📬 Contact
+
+- LinkedIn:   https://www.linkedin.com/in/yaswanth-kumar-ippili  
+- Twitter(X): https://x.com/yaswanth_ippili  
+- Instagram:  https://instagram.com/yaswanth_ippili  
+- Email:      yaswanthippili100@gmail.com  
+
+# Built with ❤️ by Yaswanth
