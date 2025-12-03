@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  ArrowRight, Box, FileText, Layers, Mail, Github, Linkedin, 
-  ExternalLink, Menu, X, ChevronDown, CheckCircle, Loader2, AlertCircle, 
-  Sparkles, MessageSquare, Send, Bot, RefreshCw, XCircle, Download, GraduationCap, File
+  ArrowRight, Mail, Github, Linkedin, Twitter, Instagram,
+  ExternalLink, Menu, X, ChevronDown, CheckCircle, 
+  Download, GraduationCap, File
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -14,28 +14,6 @@ const Portfolio = () => {
   // Image Fallback State
   const [imageError, setImageError] = useState(false);
 
-  // Contact Form State
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [formStatus, setFormStatus] = useState('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  // AI Chat State
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatInput, setChatInput] = useState('');
-  const [chatHistory, setChatHistory] = useState([
-    { role: 'model', text: "Hi! I'm Yaswanth's AI assistant. Ask me anything about his projects, skills, or experience!" }
-  ]);
-  const [isChatLoading, setIsChatLoading] = useState(false);
-
-  // Project Analysis State
-  const [analyzingProjectId, setAnalyzingProjectId] = useState(null); 
-  const [projectAnalyses, setProjectAnalyses] = useState({});
-
-  // --- CONFIGURATION ---
-  // 1. Get your free ID from https://formspree.io/
-  // 2. Paste it inside the quotes below, e.g., "https://formspree.io/f/xyza..."
-  const FORM_ENDPOINT = ""; 
-
   // Resume & Personal Data
   const profile = {
     name: "Yaswanth Kumar Ippili",
@@ -46,7 +24,9 @@ const Portfolio = () => {
     email: "yaswanthippili100@gmail.com",
     linkedin: "https://linkedin.com/in/yaswanth-ippili",
     github: "https://github.com/NickyIm04020",
-    image: "image_b30e64.jpg", // Make sure this is in your public folder!
+    twitter: "https://twitter.com/", // Add your link here
+    instagram: "https://instagram.com/", // Add your link here
+    image: "image_b30e64.jpg", 
     resumeFile: "pm_resume.pdf"
   };
 
@@ -83,7 +63,7 @@ const Portfolio = () => {
       description: "Built an LLM-powered QA system for 300+ documents. Integrated LangChain with Pinecone for semantic search, achieving 89% QA accuracy.",
       metrics: ["<6s Ingestion Time", "89% Accuracy"],
       tags: ["Python", "GPT-4", "FastAPI", "Product Strategy"],
-      link: "https://github.com/NickyIm04020" // Link to the specific project
+      link: "https://github.com/NickyIm04020" 
     },
     {
       id: 2,
@@ -184,106 +164,6 @@ const Portfolio = () => {
     }
   };
 
-  const callGemini = async (prompt, systemInstruction = "") => {
-    const apiKey = ""; // System provided at runtime
-    try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          systemInstruction: { parts: [{ text: systemInstruction }] }
-        })
-      });
-      const data = await response.json();
-      return data.candidates?.[0]?.content?.parts?.[0]?.text || "I couldn't generate a response. Please try again.";
-    } catch (error) {
-      console.error("Gemini API Error:", error);
-      return "Error connecting to AI service.";
-    }
-  };
-
-  const handleChatSubmit = async (e) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-
-    const userMessage = chatInput;
-    setChatInput('');
-    setChatHistory(prev => [...prev, { role: 'user', text: userMessage }]);
-    setIsChatLoading(true);
-
-    const contextData = JSON.stringify({ profile, skillsData, projects, experience });
-    const systemPrompt = `You are a helpful and professional AI assistant for Yaswanth Kumar Ippili's portfolio website. 
-    Your goal is to answer questions about Yaswanth's background, skills, and projects based STRICTLY on the provided data.
-    - Speak in the first person plural (e.g., "We," "Yaswanth has," "He is") or as a helpful assistant.
-    - Keep answers concise (under 3 sentences) unless asked for details.
-    - If the answer is not in the data, say you don't know but suggest contacting him directly.
-    - Be enthusiastic about his Product Management skills.
-    
-    Data: ${contextData}`;
-
-    const response = await callGemini(userMessage, systemPrompt);
-    
-    setChatHistory(prev => [...prev, { role: 'model', text: response }]);
-    setIsChatLoading(false);
-  };
-
-  const handleAnalyzeProject = async (project) => {
-    if (projectAnalyses[project.id]) return; 
-    setAnalyzingProjectId(project.id);
-    const prompt = `Analyze this project from a Product Manager's perspective:
-    Title: ${project.title}
-    Description: ${project.description}
-    Metrics: ${project.metrics.join(', ')}
-    Tech Stack: ${project.tags.join(', ')}
-    
-    Please provide a brief, bulleted "PM Insight" covering:
-    1. The core user problem solved.
-    2. Why the metrics matter (business impact).
-    3. A potential future improvement idea.
-    Keep it concise and professional. Use formatting like **bold** for key terms.`;
-
-    const analysis = await callGemini(prompt, "You are a Senior Product Manager reviewing a portfolio.");
-    setProjectAnalyses(prev => ({ ...prev, [project.id]: analysis }));
-    setAnalyzingProjectId(null);
-  };
-
-  const handleContactSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus('submitting');
-    setErrorMessage('');
-    const sanitizedData = {
-      name: formData.name.trim().replace(/[<>]/g, ""),
-      email: formData.email.trim(),
-      message: formData.message.trim().replace(/[<>]/g, "")
-    };
-
-    try {
-      if (FORM_ENDPOINT) {
-        const response = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify(sanitizedData)
-        });
-        if (response.ok) {
-          setFormStatus('success');
-          setFormData({ name: '', email: '', message: '' });
-        } else {
-          throw new Error("Failed to send message.");
-        }
-      } else {
-        // Simulation Mode
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setFormStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      }
-    } catch (error) {
-      setFormStatus('error');
-      setErrorMessage("Something went wrong. Please try again later or email directly.");
-    }
-  };
-
-  // --- Scroll Spy ---
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'education', 'skills', 'experience', 'projects', 'articles', 'teardowns', 'documents', 'contact'];
@@ -299,7 +179,6 @@ const Portfolio = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // --- Theme Classes ---
   const theme = {
     bg: isDarkMode ? 'bg-[#121212]' : 'bg-[#fafafa]',
     text: isDarkMode ? 'text-zinc-100' : 'text-zinc-900',
@@ -312,12 +191,8 @@ const Portfolio = () => {
     divider: isDarkMode ? 'border-zinc-800' : 'border-zinc-200',
     tagBg: isDarkMode ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-100 text-zinc-700',
     inputBg: isDarkMode ? 'bg-zinc-900' : 'bg-white',
-    chatBg: isDarkMode ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-200',
-    chatUserBubble: isDarkMode ? 'bg-zinc-800 text-white' : 'bg-zinc-100 text-zinc-900',
-    chatBotBubble: isDarkMode ? 'bg-blue-600 text-white' : 'bg-black text-white',
   };
 
-  // --- Reusable UI Components ---
   const NavItem = ({ id, label }) => (
     <button
       onClick={() => scrollToSection(id)}
@@ -403,15 +278,7 @@ const Portfolio = () => {
             Yaswanth Ippili
           </div>
           <div className="hidden lg:flex items-center gap-8">
-            <NavItem id="home" label="Home" />
-            <NavItem id="about" label="About" />
-            <NavItem id="education" label="Education" />
-            <NavItem id="skills" label="Skills" />
-            <NavItem id="experience" label="Experience" />
-            <NavItem id="projects" label="Projects" />
-            <NavItem id="teardowns" label="Teardowns" />
-            <NavItem id="documents" label="Docs" />
-            <NavItem id="contact" label="Contact" />
+            {['home', 'about', 'education', 'skills', 'experience', 'projects', 'teardowns', 'documents', 'contact'].map(item => <NavItem key={item} id={item} label={item.charAt(0).toUpperCase() + item.slice(1)} />)}
             <ThemeSwitch />
           </div>
           <div className="flex items-center gap-4 lg:hidden">
@@ -468,7 +335,7 @@ const Portfolio = () => {
                       src={profile.image} 
                       alt={profile.name} 
                       onError={() => setImageError(true)}
-                      className="w-full h-full object-cover rounded-[2rem] grayscale contrast-125 transition-all duration-500 hover:grayscale-0 hover:scale-[1.02] absolute inset-0" 
+                      className="w-full h-full object-cover rounded-[2rem] transition-all duration-500 hover:scale-[1.02] absolute inset-0" 
                     />
                   ) : (
                     <div className={`w-full h-full flex items-center justify-center text-6xl font-bold ${isDarkMode ? 'bg-zinc-800 text-zinc-500' : 'bg-zinc-200 text-zinc-400'}`}>
@@ -478,7 +345,14 @@ const Portfolio = () => {
                </SpotlightCard>
             </div>
           </div>
-          <div className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce ${theme.textMuted}`}><ChevronDown size={32} /></div>
+          {/* Scroll Down Arrow - Functional */}
+          <button 
+            onClick={() => scrollToSection('about')}
+            className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer ${theme.textMuted} hover:${theme.text} transition-colors`}
+            aria-label="Scroll to About section"
+          >
+            <ChevronDown size={32} />
+          </button>
         </section>
 
         {/* About Section */}
@@ -576,33 +450,6 @@ const Portfolio = () => {
                         <span key={tag} className={`px-3 py-1 rounded-md text-sm ${theme.tagBg}`}>{tag}</span>
                       ))}
                     </div>
-                    
-                    {/* Gemini PM Analysis */}
-                    <div className="mt-6">
-                      {!projectAnalyses[project.id] ? (
-                        <button 
-                          onClick={() => handleAnalyzeProject(project)}
-                          disabled={analyzingProjectId === project.id}
-                          className={`flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all transform hover:-translate-y-0.5 ${analyzingProjectId === project.id ? 'opacity-75 cursor-wait' : ''}`}
-                        >
-                          {analyzingProjectId === project.id ? <Loader2 size={16} className="animate-spin" /> : <Sparkles size={16} />}
-                          {analyzingProjectId === project.id ? 'Generating Insights...' : '✨ PM Analysis'}
-                        </button>
-                      ) : (
-                         <div className={`mt-4 p-6 rounded-xl border ${theme.border} ${isDarkMode ? 'bg-zinc-800/50' : 'bg-zinc-50'}`}>
-                           <div className="flex justify-between items-center mb-3">
-                              <div className="flex items-center gap-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-                                <Bot size={18} className="text-blue-500" /> AI Product Insight
-                              </div>
-                              <button onClick={() => setProjectAnalyses(prev => ({...prev, [project.id]: null}))} className={theme.textMuted}><XCircle size={16} /></button>
-                           </div>
-                           <div className={`prose prose-sm max-w-none ${isDarkMode ? 'prose-invert' : ''}`}>
-                             <p className={`text-sm whitespace-pre-line leading-relaxed ${theme.text}`}>{projectAnalyses[project.id]}</p>
-                           </div>
-                         </div>
-                      )}
-                    </div>
-
                   </div>
                   <div className={`w-full lg:w-80 p-6 rounded-xl border ${theme.border} ${isDarkMode ? 'bg-black/20' : 'bg-zinc-50'}`}>
                     <h4 className={`text-sm font-bold uppercase tracking-widest mb-6 ${theme.textMuted}`}>Impact Metrics</h4>
@@ -702,107 +549,27 @@ const Portfolio = () => {
           <div className="max-w-2xl mx-auto text-center">
             <h2 className={`text-5xl font-bold mb-6 ${theme.text}`}>Let's Connect</h2>
             <p className={`text-xl mb-12 ${theme.textMuted}`}>I'm currently looking for Product Management roles. <br />If you have an interesting problem to solve, I'd love to hear about it.</p>
+            
             <div className="flex justify-center gap-8 mb-16">
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`}><Linkedin size={24} /></a>
-              <a href={profile.github} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`}><Github size={24} /></a>
-              <a href={`mailto:${profile.email}`} className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`}><Mail size={24} /></a>
-            </div>
-            <div className="text-left">
-              {formStatus === 'success' ? (
-                <div className={`p-8 rounded-xl border ${isDarkMode ? 'bg-green-500/10 border-green-500/50 text-green-200' : 'bg-green-50 border-green-200 text-green-800'} flex flex-col items-center justify-center text-center animate-fadeIn`}>
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4"><CheckCircle size={32} className="text-green-500" /></div>
-                  <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-                  <p>Thanks for reaching out, {formData.name || 'Yaswanth'}. I'll get back to you soon.</p>
-                  <button onClick={() => setFormStatus('idle')} className="mt-6 text-sm font-bold underline">Send another message</button>
-                </div>
-              ) : (
-                <form className="space-y-6" onSubmit={handleContactSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className={`text-xs font-bold uppercase tracking-wider ${theme.textMuted}`}>Name</label>
-                      <input type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className={`w-full p-4 rounded-xl border focus:ring-2 focus:ring-zinc-500 focus:outline-none transition-colors ${theme.border} ${theme.text} ${theme.inputBg}`} placeholder="Your name" required disabled={formStatus === 'submitting'} />
-                    </div>
-                    <div className="space-y-2">
-                      <label className={`text-xs font-bold uppercase tracking-wider ${theme.textMuted}`}>Email</label>
-                      <input type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className={`w-full p-4 rounded-xl border focus:ring-2 focus:ring-zinc-500 focus:outline-none transition-colors ${theme.border} ${theme.text} ${theme.inputBg}`} placeholder="name@company.com" required disabled={formStatus === 'submitting'} />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className={`text-xs font-bold uppercase tracking-wider ${theme.textMuted}`}>Message</label>
-                    <textarea value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className={`w-full p-4 h-40 rounded-xl border focus:ring-2 focus:ring-zinc-500 focus:outline-none transition-colors ${theme.border} ${theme.text} ${theme.inputBg}`} placeholder="How can I help you?" required disabled={formStatus === 'submitting'} />
-                  </div>
-                  {formStatus === 'error' && <div className="flex items-center gap-2 text-red-500 text-sm font-medium"><AlertCircle size={16} />{errorMessage}</div>}
-                  <button disabled={formStatus === 'submitting'} className={`w-full py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 ${theme.buttonPrimary} ${formStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''} submit-btn`}>
-                    {formStatus === 'submitting' ? <><Loader2 size={20} className="animate-spin" /> Sending...</> : "Send Message"}
-                  </button>
-                </form>
-              )}
+              <a href={profile.linkedin} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`} aria-label="LinkedIn">
+                <Linkedin size={24} />
+              </a>
+              <a href={profile.twitter} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`} aria-label="Twitter">
+                <Twitter size={24} />
+              </a>
+              <a href={profile.instagram} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`} aria-label="Instagram">
+                <Instagram size={24} />
+              </a>
+              <a href={profile.github} target="_blank" rel="noreferrer" className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`} aria-label="GitHub">
+                <Github size={24} />
+              </a>
+              <a href={`mailto:${profile.email}`} className={`p-4 rounded-full border hover:scale-110 transition-transform ${theme.border} ${theme.text}`} aria-label="Email">
+                <Mail size={24} />
+              </a>
             </div>
           </div>
         </section>
       </main>
-
-      {/* Feature 1: AI Chat Widget */}
-      <div className="fixed bottom-6 right-6 z-50">
-        {!isChatOpen && (
-          <button 
-            onClick={() => setIsChatOpen(true)}
-            className="w-16 h-16 rounded-full bg-black text-white dark:bg-white dark:text-black shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 border-2 border-white/10"
-          >
-            <Sparkles size={28} className="animate-pulse" />
-          </button>
-        )}
-
-        {isChatOpen && (
-          <div className={`w-80 sm:w-96 rounded-2xl shadow-2xl overflow-hidden border flex flex-col transition-all duration-300 ${theme.chatBg}`} style={{height: '500px'}}>
-            {/* Chat Header */}
-            <div className="p-4 bg-gradient-to-r from-zinc-900 to-black text-white flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Bot size={20} />
-                <span className="font-bold">Yaswanth's AI</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => setChatHistory([{ role: 'model', text: "Hi! I'm Yaswanth's AI assistant. Ask me anything about his projects, skills, or experience!" }])} className="text-zinc-400 hover:text-white" title="Reset Chat"><RefreshCw size={16} /></button>
-                <button onClick={() => setIsChatOpen(false)} className="text-zinc-400 hover:text-white"><X size={20} /></button>
-              </div>
-            </div>
-
-            {/* Chat History */}
-            <div className={`flex-1 overflow-y-auto p-4 space-y-4 ${isDarkMode ? 'bg-zinc-900' : 'bg-gray-50'}`}>
-              {chatHistory.map((msg, idx) => (
-                <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${msg.role === 'user' ? theme.chatUserBubble + ' rounded-tr-none' : theme.chatBotBubble + ' rounded-tl-none'}`}>
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-              {isChatLoading && (
-                <div className="flex justify-start">
-                   <div className={`${theme.chatBotBubble} p-3 rounded-2xl rounded-tl-none flex gap-1`}>
-                     <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-                     <div className="w-2 h-2 bg-white rounded-full animate-bounce delay-100"></div>
-                     <div className="w-2 h-2 bg-white rounded-full animate-bounce delay-200"></div>
-                   </div>
-                </div>
-              )}
-            </div>
-
-            {/* Chat Input */}
-            <form onSubmit={handleChatSubmit} className={`p-3 border-t ${theme.border} flex gap-2 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
-              <input 
-                type="text" 
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                placeholder="Ask about my skills..."
-                className={`flex-1 p-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 ${isDarkMode ? 'bg-zinc-800 text-white placeholder-zinc-500' : 'bg-zinc-100 text-black placeholder-zinc-400'}`}
-              />
-              <button type="submit" disabled={isChatLoading || !chatInput.trim()} className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed">
-                <Send size={18} />
-              </button>
-            </form>
-          </div>
-        )}
-      </div>
 
       <style>{`
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
