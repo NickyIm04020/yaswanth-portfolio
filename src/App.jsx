@@ -24,8 +24,8 @@ const Portfolio = () => {
     email: "yaswanthippili100@gmail.com",
     linkedin: "https://linkedin.com/in/yaswanth-ippili",
     github: "https://github.com/NickyIm04020",
-    twitter: "https://x.com/yaswanth_ippili", // Add your link here
-    instagram: "https://www.instagram.com/yaswanth_ippili/", // Add your link here
+    twitter: "https://x.com/yaswanth_ippili", 
+    instagram: "https://www.instagram.com/yaswanth_ippili/", 
     image: "image_b30e64.jpg", 
     resumeFile: "pm_resume.pdf"
   };
@@ -45,7 +45,7 @@ const Portfolio = () => {
       year: "2020 - 2022",
       description: "Major in Sciences (Math, Physics, Chemistry). Built a robust technical foundation for engineering studies."
     },
-  {
+    {
       id: 3,
       school: "Bhashyam Educational Institutions, Srikakulam",
       degree: "Class 10",
@@ -378,8 +378,7 @@ const Portfolio = () => {
           <div className="max-w-4xl">
             <SectionTitle title="About Me" subtitle="The journey from Code to Product." />
             <div className={`space-y-8 text-lg md:text-xl leading-relaxed font-light ${theme.textMuted}`}>
-              <p>Aspiring Product Manager with strong technical foundation in AI, data, and user-focused design. Experienced in building LLM-driven tools, workflow automations, and MVP launches. Skilled in translating complex problems into measurable outcomes through agile collaboration.</p>
-              <p>Key strengths: <strong className={theme.text}>Product strategy, analytics, MVP delivery, AI integration, and stakeholder management.</strong></p>
+              <p>{profile.about}</p>
             </div>
           </div>
         </section>
@@ -518,17 +517,28 @@ const Portfolio = () => {
           <SectionTitle title="Product Teardowns" subtitle="Deconstructing UX and Growth Loops." />
           <div className="grid grid-cols-1 gap-8">
             {teardowns.map((td) => (
-              <SpotlightCard key={td.id} className={`p-8`}>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div>
-                    <h3 className={`text-2xl font-bold mb-2 ${theme.text}`}>{td.title}</h3>
-                    <p className={`text-lg ${theme.textMuted}`}>{td.summary}</p>
+              <a 
+                key={td.id} 
+                href={td.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block"
+              >
+                <SpotlightCard className={`p-8 hover:-translate-y-1 transition-transform cursor-pointer`}>
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div>
+                      <h3 className={`text-2xl font-bold mb-2 ${theme.text}`}>{td.title}</h3>
+                      <p className={`text-lg ${theme.textMuted}`}>{td.summary}</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <span className={`inline-flex items-center gap-2 px-4 py-2 rounded border text-sm font-mono ${theme.border} ${theme.textMuted}`}>
+                        {td.readTime}
+                        <ExternalLink size={14} />
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0">
-                    <span className={`inline-block px-4 py-2 rounded border text-sm font-mono ${theme.border} ${theme.textMuted}`}>{td.readTime}</span>
-                  </div>
-                </div>
-              </SpotlightCard>
+                </SpotlightCard>
+              </a>
             ))}
           </div>
         </section>
