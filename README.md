@@ -1,68 +1,41 @@
-# 🚀 Yaswanth Kumar Ippili – Product Manager Portfolio
+# Yaswanth Kumar Ippili - Product Manager Portfolio
 
-### 🧩 Overview
-A high-performance Single Page Application (SPA) built to showcase my journey as an **Aspiring Product Manager**, bridging **Engineering**, **Data**, and **User Experience**.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-Features:
-- ✨ Spotlight UI Effects (mouse-tracking lighting)
-- 🧭 Smooth single-page navigation
-- 🌓 Dark & Light mode support
-- 📱 Fully responsive for mobile, tablet, and desktop
+Welcome to my official portfolio website. This is a high-performance Single Page Application (SPA) built to showcase my journey as an **Aspiring Product Manager**, bridging the gap between Engineering, Data, and User Experience.
 
 ---
 
-### ⚙️ Tech Stack
-- React (Vite)
-- Tailwind CSS
-- Lucide React Icons
-- Vercel Deployment
+## 🚀 About The Project
 
----
+This website is designed with a **"minimalist but interactive"** philosophy. It moves away from traditional static sites by incorporating:
 
-### 📂 Project Structure
+* **Spotlight UI Effects:** Interactive lighting on cards that follows the mouse cursor.
+* **Smooth Navigation:** Single-page architecture with smooth scrolling to sections.
+* **Dark & Light Mode:** Fully themed UI that adapts to user preference.
+* **Responsive Design:** Optimized layout for mobile, tablet, and desktop.
+
+## 🛠️ Tech Stack
+
+* **Frontend Framework:** React
+* **Build Tool:** Vite
+* **Styling:** Tailwind CSS
+* **Icons:** Lucide React
+* **Deployment:** Vercel
+
+## 📂 Project Structure
+
+```bash
 yaswanth-portfolio/
-├── public/                # Static assets  
-│   ├── image_b30e64.jpg   # Profile photo  
-│   └── pm_resume.pdf      # Resume  
+├── public/              # Static assets
+│   ├── image_b30e64.jpg # Profile photo
+│   └── pm_resume.pdf    # Downloadable Resume
 ├── src/
-│   ├── App.jsx            # Main UI  
-│   ├── index.css          # Global styles  
-│   └── main.jsx           # React entry point  
-├── package.json           # Scripts & deps  
-└── tailwind.config.js     # Tailwind config  
-
----
-
-### 🚀 Getting Started
-
-# 1️⃣ Clone the repo
-  git clone https://github.com/NickyIm04020/yaswanth-portfolio.git
-  cd yaswanth-portfolio
-
-# 2️⃣ Install dependencies
-  npm install
-
-# 3️⃣ Run the local dev server
-  npm run dev
-
-# Open in browser
-# http://localhost:5173
-
----
-
-### 📦 Deployment (Vercel)
-
-# Push to GitHub
-# Import repo on Vercel
-# Vercel auto-detects Vite and deploys instantly
-
----
-
-### 📬 Contact
-
-- LinkedIn:   https://www.linkedin.com/in/yaswanth-kumar-ippili  
-- Twitter(X): https://x.com/yaswanth_ippili  
-- Instagram:  https://instagram.com/yaswanth_ippili  
-- Email:      yaswanthippili100@gmail.com  
-
-# Built with ❤️ by Yaswanth
+│   ├── App.jsx          # Main application logic & content
+│   ├── index.css        # Tailwind directives & global styles
+│   └── main.jsx         # React entry point
+├── package.json         # Dependencies & Scripts
+└── tailwind.config.js   # Tailwind configuration
