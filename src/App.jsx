@@ -18,14 +18,14 @@ const Portfolio = () => {
   const profile = {
     name: "Yaswanth Kumar Ippili",
     role: "Aspiring Product Manager",
-    tagline: "Bridging AI, Data, and User Experience to build measurable outcomes.",
+    tagline: "Bridging the gap between Engineering, Data, and User Experience.",
     about: "I specialize in building LLM-driven tools, workflow automations, and MVP launches. With a strong technical foundation in AI and agile collaboration, I translate complex problems into scalable product strategies.",
     location: "Bhubaneswar, India",
     email: "yaswanthippili100@gmail.com",
     linkedin: "https://linkedin.com/in/yaswanth-ippili",
     github: "https://github.com/NickyIm04020",
-    twitter: "https://twitter.com/", // Add your link here
-    instagram: "https://instagram.com/", // Add your link here
+    twitter: "https://x.com/yaswanth_ippili", // Add your link here
+    instagram: "https://www.instagram.com/yaswanth_ippili/", // Add your link here
     image: "image_b30e64.jpg", 
     resumeFile: "pm_resume.pdf"
   };
@@ -37,6 +37,20 @@ const Portfolio = () => {
       degree: "Bachelor of Technology, Computer Science & Engineering",
       year: "2022 - Present",
       description: "Focusing on Data Science, AI, and Product Design."
+    },
+    {
+      id: 2,
+      school: "Tirumala Educational Institutions, Visakhapatnam",
+      degree: "Intermediate (+2)",
+      year: "2020 - 2022",
+      description: "Major in Sciences (Math, Physics, Chemistry). Built a robust technical foundation for engineering studies."
+    },
+  {
+      id: 3,
+      school: "Bhashyam Educational Institutions, Srikakulam",
+      degree: "Class 10",
+      year: "2019 - 2020",
+      description: "General Secondary Education. Graduated with a focus on Mathematics and Science fundamentals."
     }
   ];
 
@@ -72,7 +86,7 @@ const Portfolio = () => {
       description: "Created a CLI tool analyzing Java error logs to suggest fixes. Processed 150+ test cases, improving debugging speed significantly.",
       metrics: ["40% Faster Debugging", "+25% Test Coverage"],
       tags: ["Java", "GenAI", "CLI", "User Experience"],
-      link: "https://github.com/NickyIm04020"
+      link: "https://github.com/NickyIm04020/Dev-Assistant-AI"
     },
     {
       id: 3,
@@ -82,13 +96,22 @@ const Portfolio = () => {
       metrics: ["0.92 AUC-ROC", "0.12 Brier Score"],
       tags: ["AWS Lambda", "XGBoost", "Healthcare Data"],
       link: "https://github.com/NickyIm04020"
+    },
+    {
+      id: 4,
+      title: "Portfolio Website",
+      category: "Website Building",
+      description: "The official portfolio of mine which is this website. Built with vibe coding and basic wesite building tools",
+      metrics: ["100% responsive SPA", "<50KB initial bundle size"],
+      tags: ["HTML", "CSS", "Java-Script"],
+      link: "https://github.com/NickyIm04020/yaswanth-portfolio"
     }
   ];
 
   const experience = [
     {
       id: 1,
-      role: "Product Designer & PM Lead",
+      role: "Graphic Designer",
       company: "E-Cell, IIIT Bhubaneswar",
       period: "Dec 2022 - Apr 2024",
       description: "Led a 3-member team to deliver 30+ campaigns, supporting 10+ events and boosting student engagement by 40%. Built reusable design systems improving output turnaround by 35%."
@@ -97,52 +120,47 @@ const Portfolio = () => {
       id: 2,
       role: "Product Management Simulation",
       company: "Electronic Arts (EA) / Forage",
-      period: "2024",
+      date: "Jun, 2024",
       description: "Improved retention forecast by 15% using feature prioritization; drafted Jira and stakeholder reports."
-    },
-    {
-      id: 3,
-      role: "Software Engineering Intern",
-      company: "Goldman Sachs / Forage",
-      period: "2024",
-      description: "Completed modules on encryption, secure coding, and software optimization tasks."
     }
   ];
 
   const articles = [
     {
       id: 1,
-      title: "The Future of AI in Product Management",
+      title: "As an Aspiring PM, I'm Less Interested in 'Beating the Competition.' I'm Obsessed with Making It Irrelevant.",
       platform: "LinkedIn",
-      date: "Feb 2025",
-      summary: "Exploring how LLMs are changing the landscape of requirement gathering and user research.",
+      date: "Oct, 2025",
+      summary: "Analyzing how category-defining products like Netflix and Airbnb used the ERRC framework to escape competition and invent entirely new markets.",
       link: "https://linkedin.com/in/yaswanth-ippili" 
     },
     {
       id: 2,
-      title: "Metrics that Matter: Beyond Vanity",
+      title: "Stop Calling the Product Lifecycle a 'Process.' It's a Story.",
       platform: "LinkedIn",
-      date: "Jan 2025",
-      summary: "A deep dive into why retention beats acquisition in the early stages of a startup.",
-      link: "https://linkedin.com/in/yaswanth-ippili"
+      date: "Nov, 2025",
+      summary: "A framework analyzing how giants like Airbnb and Netflix succeed by treating the product lifecycle as a narrative story rather than a rigid process.",
+      link: "https://www.linkedin.com/pulse/stop-calling-product-lifecycle-process-its-story-ippili-tfync/?trackingId=JHlEhDr9QBi4WOC6VlPIhA%3D%3D"
+    },
+    {
+      id: 3,
+      title: "Your Doomscroll Isn't Your Fault. It's a Feature.",
+      platform: "LinkedIn",
+      date: "Nov, 2025",
+      summary: "Deconstructing the psychological design loops behind 'doomscrolling' and advocating for a shift from engagement metrics to digital well-being.",
+      link: "https://www.linkedin.com/pulse/your-doomscroll-isnt-fault-its-feature-yaswanth-kumar-ippili-5s0ec/?trackingId=JHlEhDr9QBi4WOC6VlPIhA%3D%3D"
     }
   ];
 
   const teardowns = [
     {
       id: 1,
-      title: "GenAI Model Ethics",
-      summary: "Insights from Google GenAI Academy on prompt design and ethical model usage.",
+      title: "Snabbit Product Teardown",
+      summary: "A deep dive into Snabbit's quick-commerce UX, analyzing how they reduce friction to drive impulse buys and user retention.",
       readTime: "Analysis",
-      date: "2025"
+      date: "Nov 2025",
+      link: "https://www.linkedin.com/posts/yaswanth-ippili_snabbit-product-teardown-activity-7397605698051948544-dEux?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
     },
-    {
-      id: 2,
-      title: "Spotify Social Features",
-      summary: "Analyzing how Spotify leverages network effects to increase lock-in.",
-      readTime: "Coming Soon",
-      date: "Future"
-    }
   ];
 
   const documents = [
@@ -360,8 +378,8 @@ const Portfolio = () => {
           <div className="max-w-4xl">
             <SectionTitle title="About Me" subtitle="The journey from Code to Product." />
             <div className={`space-y-8 text-lg md:text-xl leading-relaxed font-light ${theme.textMuted}`}>
-              <p>My background is rooted in Computer Science, where I started by building predictive models like <strong className={theme.text}> HealthRiskAI</strong> to solve complex data problems.</p>
-              <p>However, I realized that technical excellence is only half the equation. The other half is ensuring that technology solves a genuine human need. This realization pivoted my career toward <strong className={theme.text}>Product Management</strong>, where I now leverage my technical expertise in AI and LLMs to build products that are not just feasible, but valuable and usable.</p>
+              <p>Aspiring Product Manager with strong technical foundation in AI, data, and user-focused design. Experienced in building LLM-driven tools, workflow automations, and MVP launches. Skilled in translating complex problems into measurable outcomes through agile collaboration.</p>
+              <p>Key strengths: <strong className={theme.text}>Product strategy, analytics, MVP delivery, AI integration, and stakeholder management.</strong></p>
             </div>
           </div>
         </section>
