@@ -161,6 +161,14 @@ const Portfolio = () => {
       date: "Nov 2025",
       link: "https://www.linkedin.com/posts/yaswanth-ippili_snabbit-product-teardown-activity-7397605698051948544-dEux?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
     },
+    {
+      id: 2,
+      title: "From Burn to Earn: The Unit Economics of UPI Incentives (Case Study)",
+      summary: "A strategic deep dive into how Google Pay, PhonePe, and Paytm are pivoting from cashback-driven user acquisition to sustainable monetization in a zero-MDR environment.",
+      readTime: "Analysis",
+      date: "Dec 2025",
+      link: "https://www.linkedin.com/posts/yaswanth-ippili_cashbackscasestudy-activity-7405703961867177984-iSC8?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
+    },
   ];
 
   const documents = [
@@ -514,7 +522,7 @@ const Portfolio = () => {
 
         {/* Teardowns Section */}
         <section id="teardowns" className={`py-24 lg:py-32 scroll-mt-20 border-t border-dashed ${theme.divider}`}>
-          <SectionTitle title="Product Teardowns" subtitle="Deconstructing UX and Growth Loops." />
+          <SectionTitle title="Product Teardowns and Case Studies" subtitle="Deconstructing UX and Growth Loops." />
           <div className="grid grid-cols-1 gap-8">
             {teardowns.map((td) => (
               <a 
