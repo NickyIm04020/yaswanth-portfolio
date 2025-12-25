@@ -77,7 +77,7 @@ const Portfolio = () => {
       description: "Built an LLM-powered QA system for 300+ documents. Integrated LangChain with Pinecone for semantic search, achieving 89% QA accuracy.",
       metrics: ["<6s Ingestion Time", "89% Accuracy"],
       tags: ["Python", "GPT-4", "FastAPI", "Product Strategy"],
-      link: "https://github.com/NickyIm04020" 
+      link: "https://github.com/NickyIm04020/ChatPDF-Pro" 
     },
     {
       id: 2,
@@ -95,7 +95,7 @@ const Portfolio = () => {
       description: "Deployed a predictive disease risk scoring pipeline using NHANES/MIMIC-III data. Applied SHAP for interpretable AI insights.",
       metrics: ["0.92 AUC-ROC", "0.12 Brier Score"],
       tags: ["AWS Lambda", "XGBoost", "Healthcare Data"],
-      link: "https://github.com/NickyIm04020"
+      link: "https://github.com/NickyIm04020/HealthRiskAI"
     },
     {
       id: 4,
@@ -105,6 +105,15 @@ const Portfolio = () => {
       metrics: ["100% responsive SPA", "<50KB initial bundle size"],
       tags: ["HTML", "CSS", "Java-Script"],
       link: "https://github.com/NickyIm04020/yaswanth-portfolio"
+    }
+    {
+      id: 5,
+      title: "NorthPole_OS",
+      category: "AI Dashboard",
+      description: "A mission-control dashboard for Santa's R&D. Utilizes OpenAI to analyze natural language wish lists and automatically converts them into technical engineering tickets, complexity scores, and resource allocation charts.",
+      metrics: ["NLP-to-Spec Automation", "Dynamic Data Visualization"],
+      tags: ["Python", "Streamlit", "OpenAI API", "Pandas"],
+      link: "https://github.com/NickyIm04020/northpole-os" 
     }
   ];
 
@@ -168,6 +177,14 @@ const Portfolio = () => {
       readTime: "Analysis",
       date: "Dec 2025",
       link: "https://www.linkedin.com/posts/yaswanth-ippili_cashbackscasestudy-activity-7405703961867177984-iSC8?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
+    },
+    {
+      id: 3,
+      title: "The Great Regression (Case Study)",
+      summary: "Deep-dive analysis on why people choose Telegram Channels to watch movies rather than taking subscripions from entertainment apps and going to theatres.",
+      readTime: "Analysis",
+      date: "Dec 2025",
+      link: "https://www.linkedin.com/posts/yaswanth-ippili_2ndcasestudy-activity-7407985694184464384-lDme?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
     },
   ];
 
