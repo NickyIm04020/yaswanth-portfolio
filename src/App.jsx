@@ -105,7 +105,7 @@ const Portfolio = () => {
       metrics: ["100% responsive SPA", "<50KB initial bundle size"],
       tags: ["HTML", "CSS", "Java-Script"],
       link: "https://github.com/NickyIm04020/yaswanth-portfolio"
-    }
+    },
     {
       id: 5,
       title: "NorthPole_OS",
