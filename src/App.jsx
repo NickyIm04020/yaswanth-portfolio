@@ -129,9 +129,16 @@ const Portfolio = () => {
       id: 2,
       role: "Product Management Simulation",
       company: "Electronic Arts (EA) / Forage",
-      date: "Jun, 2024",
+      date: "Jun 2024",
       description: "Improved retention forecast by 15% using feature prioritization; drafted Jira and stakeholder reports."
-    }
+    },
+    {
+      id: 3,
+      role: "Python Internship",
+      company: "Codsoft",
+      date: "May 2024",
+      description: "Developed three interactive web applications—a secure password generator, dynamic calculator, and responsive to-do list—during a focused Web Development internship."
+    },
   ];
 
   const articles = [
@@ -185,6 +192,14 @@ const Portfolio = () => {
       readTime: "Analysis",
       date: "Dec 2025",
       link: "https://www.linkedin.com/posts/yaswanth-ippili_2ndcasestudy-activity-7407985694184464384-lDme?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU"
+    },
+    {
+      id: 3,
+      title: "The Calibration Imperative",
+      summary: "OpenAI Product Case Study: A framework for evaluating 'Trust Calibration'. Deep-dive on why accuracy ≠ trust, and how to detect signals of over-trust (blind copying) vs under-trust in AI reasoning tools.",
+      readTime: "Case Study",
+      date: "Jan 2026",
+      link: "https://www.linkedin.com/posts/yaswanth-ippili_casestudy-activity-7412349396916502529-UtVw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC2qhUABYFIXNaqp3n5n6D92ijqmzjJZJlU" // Replace this with the URL of the LinkedIn post you just published
     },
   ];
 
