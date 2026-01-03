@@ -137,7 +137,7 @@ const Portfolio = () => {
       role: "Python Internship",
       company: "Codsoft",
       date: "May 2024 - Jun 2024",
-      description: "Developed three interactive web applications—a secure password generator, dynamic calculator, and responsive to-do list—during a focused Web Development internship."
+      description: "Developed three interactive python applications—a secure password generator, dynamic calculator, and responsive to-do list—during a focused Web Development internship."
     },
   ];
 
@@ -146,7 +146,7 @@ const Portfolio = () => {
       id: 1,
       title: "As an Aspiring PM, I'm Less Interested in 'Beating the Competition.' I'm Obsessed with Making It Irrelevant.",
       platform: "LinkedIn",
-      date: "Oct, 2025",
+      date: "Oct 2025",
       summary: "Analyzing how category-defining products like Netflix and Airbnb used the ERRC framework to escape competition and invent entirely new markets.",
       link: "https://linkedin.com/in/yaswanth-ippili" 
     },
@@ -154,7 +154,7 @@ const Portfolio = () => {
       id: 2,
       title: "Stop Calling the Product Lifecycle a 'Process.' It's a Story.",
       platform: "LinkedIn",
-      date: "Nov, 2025",
+      date: "Nov 2025",
       summary: "A framework analyzing how giants like Airbnb and Netflix succeed by treating the product lifecycle as a narrative story rather than a rigid process.",
       link: "https://www.linkedin.com/pulse/stop-calling-product-lifecycle-process-its-story-ippili-tfync/?trackingId=JHlEhDr9QBi4WOC6VlPIhA%3D%3D"
     },
@@ -162,7 +162,7 @@ const Portfolio = () => {
       id: 3,
       title: "Your Doomscroll Isn't Your Fault. It's a Feature.",
       platform: "LinkedIn",
-      date: "Nov, 2025",
+      date: "Nov 2025",
       summary: "Deconstructing the psychological design loops behind 'doomscrolling' and advocating for a shift from engagement metrics to digital well-being.",
       link: "https://www.linkedin.com/pulse/your-doomscroll-isnt-fault-its-feature-yaswanth-kumar-ippili-5s0ec/?trackingId=JHlEhDr9QBi4WOC6VlPIhA%3D%3D"
     }
