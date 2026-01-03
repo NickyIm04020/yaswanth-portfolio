@@ -129,14 +129,14 @@ const Portfolio = () => {
       id: 2,
       role: "Product Management Simulation",
       company: "Electronic Arts (EA) / Forage",
-      date: "Jun 2024",
+      date: "Jun 2024 - Jun 2024",
       description: "Improved retention forecast by 15% using feature prioritization; drafted Jira and stakeholder reports."
     },
     {
       id: 3,
       role: "Python Internship",
       company: "Codsoft",
-      date: "May 2024",
+      date: "May 2024 - Jun 2024",
       description: "Developed three interactive web applications—a secure password generator, dynamic calculator, and responsive to-do list—during a focused Web Development internship."
     },
   ];
