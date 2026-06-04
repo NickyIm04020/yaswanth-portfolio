@@ -114,6 +114,15 @@ const Portfolio = () => {
       metrics: ["NLP-to-Spec Automation", "Dynamic Data Visualization"],
       tags: ["Python", "Streamlit", "OpenAI API", "Pandas"],
       link: "https://github.com/NickyIm04020/northpole-os" 
+    },
+    {
+    id: 6,
+    title: "Early Prediction of Obstructive Sleep Apnea",
+    category: "Healthcare ML",
+    description: "Developed a proactive deep learning system to predict Obstructive Sleep Apnea events 30 seconds in advance using raw Nasal Airflow and SpO₂ signals from the SHHS dataset. Implemented and compared 1D-CNN-BiLSTM and Multi-Head Attention enhanced architectures.",
+    metrics: ["91.04% Accuracy", "99.58% Sensitivity", "30s Early Prediction"],
+    tags: ["Python", "TensorFlow", "Keras", "BiLSTM", "Multi-Head Attention", "1D-CNN", "Time Series", "Healthcare AI"],
+    link: "https://github.com/NickyIm04020/Sleep-Apnea-Detection"
     }
   ];
 
