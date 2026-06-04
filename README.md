@@ -41,4 +41,4 @@ yaswanth-portfolio/
 └── tailwind.config.js   # Tailwind configuration
 
 ```
-Link: **(https://yaswanth-portfolio-alpha.vercel.app/)**
+Link: **https://yaswanth-portfolio-alpha.vercel.app/**
