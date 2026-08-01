@@ -69,62 +69,71 @@ const Portfolio = () => {
     ]
   };
 
-  const projects = [
-    {
-      id: 1,
-      title: "ChatPDF Pro",
-      category: "AI & RAG",
-      description: "Built an LLM-powered QA system for 300+ documents. Integrated LangChain with Pinecone for semantic search, achieving 89% QA accuracy.",
-      metrics: ["<6s Ingestion Time", "89% Accuracy"],
-      tags: ["Python", "GPT-4", "FastAPI", "Product Strategy"],
-      link: "https://github.com/NickyIm04020/ChatPDF-Pro" 
-    },
-    {
-      id: 2,
-      title: "DevAssistant AI",
-      category: "Developer Tools",
-      description: "Created a CLI tool analyzing Java error logs to suggest fixes. Processed 150+ test cases, improving debugging speed significantly.",
-      metrics: ["40% Faster Debugging", "+25% Test Coverage"],
-      tags: ["Java", "GenAI", "CLI", "User Experience"],
-      link: "https://github.com/NickyIm04020/Dev-Assistant-AI"
-    },
-    {
-      id: 3,
-      title: "HealthRiskAI",
-      category: "Healthcare ML",
-      description: "Deployed a predictive disease risk scoring pipeline using NHANES/MIMIC-III data. Applied SHAP for interpretable AI insights.",
-      metrics: ["0.92 AUC-ROC", "0.12 Brier Score"],
-      tags: ["AWS Lambda", "XGBoost", "Healthcare Data"],
-      link: "https://github.com/NickyIm04020/HealthRiskAI"
-    },
-    {
-      id: 4,
-      title: "Portfolio Website",
-      category: "Website Building",
-      description: "The official portfolio of mine which is this website. Built with vibe coding and basic wesite building tools",
-      metrics: ["100% responsive SPA", "<50KB initial bundle size"],
-      tags: ["HTML", "CSS", "Java-Script"],
-      link: "https://github.com/NickyIm04020/yaswanth-portfolio"
-    },
-    {
-      id: 5,
-      title: "NorthPole_OS",
-      category: "AI Dashboard",
-      description: "A mission-control dashboard for Santa's R&D. Utilizes OpenAI to analyze natural language wish lists and automatically converts them into technical engineering tickets, complexity scores, and resource allocation charts.",
-      metrics: ["NLP-to-Spec Automation", "Dynamic Data Visualization"],
-      tags: ["Python", "Streamlit", "OpenAI API", "Pandas"],
-      link: "https://github.com/NickyIm04020/northpole-os" 
-    },
-    {
+const projects = [
+  {
+    id: 1,
+    title: "ChatPDF Pro",
+    category: "AI & RAG",
+    description: "Built an LLM-powered QA system for 300+ documents. Integrated LangChain with Pinecone for semantic search, achieving 89% QA accuracy.",
+    metrics: ["<6s Ingestion Time", "89% Accuracy"],
+    tags: ["Python", "GPT-4", "FastAPI", "Product Strategy"],
+    link: "https://github.com/NickyIm04020/ChatPDF-Pro"
+  },
+  {
+    id: 2,
+    title: "DevAssistant AI",
+    category: "Developer Tools",
+    description: "Created a CLI tool analyzing Java error logs to suggest fixes. Processed 150+ test cases, improving debugging speed significantly.",
+    metrics: ["40% Faster Debugging", "+25% Test Coverage"],
+    tags: ["Java", "GenAI", "CLI", "User Experience"],
+    link: "https://github.com/NickyIm04020/Dev-Assistant-AI"
+  },
+  {
+    id: 3,
+    title: "Atlas_AI",
+    category: "AI Assistant",
+    description: "Built an AI-powered assistant project focused on intelligent task handling, workflow automation, and guided user interactions.",
+    metrics: ["AI Workflow Automation", "Smart Assistance"],
+    tags: ["Python", "AI", "Automation", "OpenAI API"],
+    link: "https://github.com/NickyIm04020/Atlas_AI"
+  },
+  {
+    id: 4,
+    title: "HealthRiskAI",
+    category: "Healthcare ML",
+    description: "Deployed a predictive disease risk scoring pipeline using NHANES/MIMIC-III data. Applied SHAP for interpretable AI insights.",
+    metrics: ["0.92 AUC-ROC", "0.12 Brier Score"],
+    tags: ["AWS Lambda", "XGBoost", "Healthcare Data"],
+    link: "https://github.com/NickyIm04020/HealthRiskAI"
+  },
+  {
+    id: 5,
+    title: "Portfolio Website",
+    category: "Website Building",
+    description: "The official portfolio website, built with vibe coding and basic website-building tools.",
+    metrics: ["100% Responsive SPA", "<50KB Initial Bundle Size"],
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://github.com/NickyIm04020/yaswanth-portfolio"
+  },
+  {
     id: 6,
+    title: "NorthPole_OS",
+    category: "AI Dashboard",
+    description: "A mission-control dashboard for Santa's R&D. Utilizes OpenAI to analyze natural language wish lists and automatically converts them into technical engineering tickets, complexity scores, and resource allocation charts.",
+    metrics: ["NLP-to-Spec Automation", "Dynamic Data Visualization"],
+    tags: ["Python", "Streamlit", "OpenAI API", "Pandas"],
+    link: "https://github.com/NickyIm04020/northpole-os"
+  },
+  {
+    id: 7,
     title: "Early Prediction of Obstructive Sleep Apnea",
     category: "Healthcare ML",
     description: "Developed a proactive deep learning system to predict Obstructive Sleep Apnea events 30 seconds in advance using raw Nasal Airflow and SpO₂ signals from the SHHS dataset. Implemented and compared 1D-CNN-BiLSTM and Multi-Head Attention enhanced architectures.",
     metrics: ["91.04% Accuracy", "99.58% Sensitivity", "30s Early Prediction"],
     tags: ["Python", "TensorFlow", "Keras", "BiLSTM", "Multi-Head Attention", "1D-CNN", "Time Series", "Healthcare AI"],
     link: "https://github.com/NickyIm04020/Sleep-Apnea-Detection"
-    }
-  ];
+  }
+];
 
   const experience = [
     {
