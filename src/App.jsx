@@ -26,7 +26,7 @@ const Portfolio = () => {
     github: "https://github.com/NickyIm04020",
     twitter: "https://x.com/yaswanth_ippili", 
     instagram: "https://www.instagram.com/yaswanth_ippili/", 
-    image: "image_b30e64.jpg", 
+    image: "profilephoto.jpg", 
     resumeFile: "pm_resume.pdf"
   };
 
